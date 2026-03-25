@@ -8,7 +8,6 @@ public class MicroserviceStudiesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceStudiesApplication.class, args);
-		System.out.println("OIEEEEE");
 	}
 
 }
