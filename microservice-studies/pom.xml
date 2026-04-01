@@ -7,8 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.0.4</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+		<relativePath /> </parent>
 	<groupId>io.github.viniciusnunes01</groupId>
 	<artifactId>microservice-studies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -30,12 +29,13 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
 	</properties>
 	<dependencies>
-		<!--<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>-->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
