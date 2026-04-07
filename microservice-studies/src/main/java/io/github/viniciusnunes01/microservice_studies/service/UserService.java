@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.viniciusnunes01.microservice_studies.dto.UserDTO;
@@ -40,5 +42,9 @@ public class UserService {
 
 	public void delete(Long id) {
 		userRepository.deleteById(id);
+	}
+
+	public Page<User> getByName(String name, Pageable pageable) {
+		return userRepository.findByNameContainingIgnoreCase(name, pageable);
 	}
 }
