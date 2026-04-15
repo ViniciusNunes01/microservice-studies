@@ -22,7 +22,7 @@ public abstract class BaseEntity {
 
 	@CreationTimestamp
 	@Column(nullable = false, updatable = false)
-	private LocalDateTime createdAt;
+	private LocalDateTime createdAt = LocalDateTime.now();
 
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;

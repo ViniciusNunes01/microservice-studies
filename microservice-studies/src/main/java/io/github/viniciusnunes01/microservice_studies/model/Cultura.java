@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,6 @@ public class Cultura extends BaseEntity {
 	private String nome;
 
 	// Uma cultura pode ter várias ocorrências de pragas
-	@OneToMany(mappedBy = "cultura", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cultura", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 }
