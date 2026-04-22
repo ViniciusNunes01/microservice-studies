@@ -1,7 +1,7 @@
 package io.github.viniciusnunes01.microservice_studies.service;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.viniciusnunes01.microservice_studies.model.Tratamento;
@@ -14,8 +14,8 @@ public class TratamentoService {
 
 	private final TratamentoRepository tratamentoRepository;
 
-	public List<Tratamento> listAll() {
-		return tratamentoRepository.findAll();
+	public Page<Tratamento> listAll(Pageable pageable) {
+		return tratamentoRepository.findAll(pageable);
 	}
 
 	public Tratamento findById(Long id) {

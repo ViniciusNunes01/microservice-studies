@@ -1,7 +1,7 @@
 package io.github.viniciusnunes01.microservice_studies.service;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.viniciusnunes01.microservice_studies.model.Ocorrencia;
@@ -14,8 +14,8 @@ public class OcorrenciaService {
 
 	private final OcorrenciaRepository ocorrenciaRepository;
 
-	public List<Ocorrencia> listAll() {
-		return ocorrenciaRepository.findAll();
+	public Page<Ocorrencia> listAll(Pageable pageable) {
+		return ocorrenciaRepository.findAll(pageable);
 	}
 
 	public Ocorrencia findById(Long id) {

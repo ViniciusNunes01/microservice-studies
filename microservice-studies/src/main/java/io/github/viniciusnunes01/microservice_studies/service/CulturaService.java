@@ -1,11 +1,14 @@
 package io.github.viniciusnunes01.microservice_studies.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import io.github.viniciusnunes01.microservice_studies.model.Cultura;
 import io.github.viniciusnunes01.microservice_studies.repository.CulturaRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -13,13 +16,13 @@ public class CulturaService {
 
 	private final CulturaRepository culturaRepository;
 
-	public List<Cultura> listAll() {
-		return culturaRepository.findAll();
+	public Page<Cultura> listAll(Pageable pageable) {
+		return culturaRepository.findAll(pageable);
 	}
 
 	public Cultura findById(Long id) {
-		return culturaRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Cultura não encontrada com o ID: " + id));
+		return culturaRepository.findById(id).orElseThrow(
+				() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cultura não encontrada com o ID: " + id));
 	}
 
 	public Cultura create(Cultura cultura) {

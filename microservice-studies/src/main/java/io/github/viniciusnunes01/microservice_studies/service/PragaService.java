@@ -1,7 +1,7 @@
 package io.github.viniciusnunes01.microservice_studies.service;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.viniciusnunes01.microservice_studies.model.Praga;
@@ -14,8 +14,8 @@ public class PragaService {
 
 	private final PragaRepository pragaRepository;
 
-	public List<Praga> listAll() {
-		return pragaRepository.findAll();
+	public Page<Praga> listAll(Pageable pageable) {
+		return pragaRepository.findAll(pageable);
 	}
 
 	public Praga findById(Long id) {
