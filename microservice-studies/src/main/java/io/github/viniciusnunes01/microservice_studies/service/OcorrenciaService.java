@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import io.github.viniciusnunes01.microservice_studies.exception.NotFoundException;
 import io.github.viniciusnunes01.microservice_studies.model.Ocorrencia;
 import io.github.viniciusnunes01.microservice_studies.repository.OcorrenciaRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class OcorrenciaService {
 
 	public Ocorrencia findById(Long id) {
 		return ocorrenciaRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Ocorrencia não encontrada com o ID: " + id));
+				.orElseThrow(() -> new NotFoundException("Ocorrencia não encontrada com o ID: " + id));
 	}
 
 	public Ocorrencia create(Ocorrencia ocorrencia) {

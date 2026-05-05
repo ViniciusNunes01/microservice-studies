@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.viniciusnunes01.microservice_studies.model.Praga;
 import io.github.viniciusnunes01.microservice_studies.service.PragaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -36,13 +37,13 @@ public class PragaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Praga> create(@RequestBody Praga praga) {
+	public ResponseEntity<Praga> create(@Valid @RequestBody Praga praga) {
 		Praga novaPraga = pragaService.create(praga);
 		return ResponseEntity.status(HttpStatus.CREATED).body(novaPraga);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Praga> update(@PathVariable Long id, @RequestBody Praga praga) {
+	public ResponseEntity<Praga> update(@PathVariable Long id, @Valid @RequestBody Praga praga) {
 		return ResponseEntity.ok(pragaService.update(id, praga));
 	}
 

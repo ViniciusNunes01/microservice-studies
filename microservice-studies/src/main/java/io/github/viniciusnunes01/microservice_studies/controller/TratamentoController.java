@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.viniciusnunes01.microservice_studies.model.Tratamento;
 import io.github.viniciusnunes01.microservice_studies.service.TratamentoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -36,13 +37,13 @@ public class TratamentoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Tratamento> create(@RequestBody Tratamento tratamento) {
+	public ResponseEntity<Tratamento> create(@Valid @RequestBody Tratamento tratamento) {
 		Tratamento novoTratamento = tratamentoService.create(tratamento);
 		return ResponseEntity.status(HttpStatus.CREATED).body(novoTratamento);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Tratamento> update(@PathVariable Long id, @RequestBody Tratamento tratamento) {
+	public ResponseEntity<Tratamento> update(@PathVariable Long id, @Valid @RequestBody Tratamento tratamento) {
 		return ResponseEntity.ok(tratamentoService.update(id, tratamento));
 	}
 

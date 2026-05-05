@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import io.github.viniciusnunes01.microservice_studies.exception.NotFoundException;
 import io.github.viniciusnunes01.microservice_studies.model.Tratamento;
 import io.github.viniciusnunes01.microservice_studies.repository.TratamentoRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class TratamentoService {
 
 	public Tratamento findById(Long id) {
 		return tratamentoRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Tratamento não encontrado com o ID: " + id));
+				.orElseThrow(() -> new NotFoundException("Tratamento não encontrado com o ID: " + id));
 	}
 
 	public Tratamento create(Tratamento tratamento) {

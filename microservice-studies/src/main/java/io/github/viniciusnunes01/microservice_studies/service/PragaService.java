@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import io.github.viniciusnunes01.microservice_studies.exception.NotFoundException;
 import io.github.viniciusnunes01.microservice_studies.model.Praga;
 import io.github.viniciusnunes01.microservice_studies.repository.PragaRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class PragaService {
 
 	public Praga findById(Long id) {
 		return pragaRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Praga não encontrada com o ID: " + id));
+				.orElseThrow(() -> new NotFoundException("Praga não encontrada com o ID: " + id));
 	}
 
 	public Praga create(Praga praga) {

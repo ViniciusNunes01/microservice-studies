@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.viniciusnunes01.microservice_studies.model.Ocorrencia;
 import io.github.viniciusnunes01.microservice_studies.service.OcorrenciaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -36,13 +37,13 @@ public class OcorrenciaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Ocorrencia> create(@RequestBody Ocorrencia ocorrencia) {
+	public ResponseEntity<Ocorrencia> create(@Valid @RequestBody Ocorrencia ocorrencia) {
 		Ocorrencia novaOcorrencia = ocorrenciaService.create(ocorrencia);
 		return ResponseEntity.status(HttpStatus.CREATED).body(novaOcorrencia);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Ocorrencia> update(@PathVariable Long id, @RequestBody Ocorrencia ocorrencia) {
+	public ResponseEntity<Ocorrencia> update(@PathVariable Long id, @Valid @RequestBody Ocorrencia ocorrencia) {
 		return ResponseEntity.ok(ocorrenciaService.update(id, ocorrencia));
 	}
 

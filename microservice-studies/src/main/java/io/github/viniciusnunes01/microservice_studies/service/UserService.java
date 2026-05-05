@@ -2,7 +2,6 @@ package io.github.viniciusnunes01.microservice_studies.service;
 
 import java.util.List;
 
-import org.jspecify.annotations.Nullable;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +12,7 @@ import io.github.viniciusnunes01.microservice_studies.dto.UserDTO;
 import io.github.viniciusnunes01.microservice_studies.exception.NotFoundException;
 import io.github.viniciusnunes01.microservice_studies.model.User;
 import io.github.viniciusnunes01.microservice_studies.repository.UserRepository;
+import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
 
 @Service

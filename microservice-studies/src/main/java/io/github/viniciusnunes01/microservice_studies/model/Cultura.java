@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,7 +24,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_cultura")
 public class Cultura extends BaseEntity {
 
-	@Column(nullable = false, length = 100)
+	@NotBlank(message = "O nome da cultura é obrigatório e não pode ficar em branco.")
+    @Size(min = 2, max = 100, message = "O nome da cultura deve ter entre 2 e 100 caracteres.")
+    @Column(nullable = false, length = 100)
 	private String nome;
 
 	// Uma cultura pode ter várias ocorrências de pragas
