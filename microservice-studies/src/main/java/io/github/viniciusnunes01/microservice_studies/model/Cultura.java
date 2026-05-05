@@ -1,4 +1,4 @@
-package io.github.viniciusnunes01.microservice_studies.model;
+	package io.github.viniciusnunes01.microservice_studies.model;
 
 import java.util.ArrayList;
 import java.util.List;
