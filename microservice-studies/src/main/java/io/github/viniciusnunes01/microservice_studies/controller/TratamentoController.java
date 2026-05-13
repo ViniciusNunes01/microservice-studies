@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.viniciusnunes01.microservice_studies.model.Tratamento;
 import io.github.viniciusnunes01.microservice_studies.service.TratamentoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "Tratamentos", description = "Gerenciamento de tratamentos agrícolas, incluindo aplicação de defensivos, fertilizantes e outras práticas de manejo.")
 @RestController
 @RequestMapping("/tratamentos")
 @RequiredArgsConstructor

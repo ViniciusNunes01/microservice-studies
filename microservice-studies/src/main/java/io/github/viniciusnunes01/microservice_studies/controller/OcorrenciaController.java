@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.viniciusnunes01.microservice_studies.model.Ocorrencia;
 import io.github.viniciusnunes01.microservice_studies.service.OcorrenciaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "Ocorrencias", description = "Ocorrências relacionadas a eventos agrícolas, como pragas, doenças e condições climáticas adversas.")
 @RestController
 @RequestMapping("/ocorrencias")
 @RequiredArgsConstructor

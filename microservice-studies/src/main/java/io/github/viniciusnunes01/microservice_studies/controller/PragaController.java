@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.viniciusnunes01.microservice_studies.model.Praga;
 import io.github.viniciusnunes01.microservice_studies.service.PragaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "Pragas", description = "Gerenciamento de pragas agrícolas, incluindo identificação, controle e monitoramento.")
 @RestController
 @RequestMapping("/pragas")
 @RequiredArgsConstructor
